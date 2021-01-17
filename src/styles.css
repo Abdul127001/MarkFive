@@ -1,5 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.header {
+  text-transform: uppercase;
+  border-radius: 0 0 0 20px;
+  background-color: #f59e0b;
+  padding: 0.1rem;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif !important;
+}
+
+.inputField {
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ccc;
+  margin-top: 2rem;
+  padding: 0 10px;
+  height: 2.4rem;
+  width: 40%;
+}
+
+.emojiContainer {
+  width: 50%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.emojiContainer span {
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin: 1rem;
+}
