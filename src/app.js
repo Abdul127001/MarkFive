@@ -2,34 +2,35 @@ import React, { useState } from "react";
 import "./styles.css";
 
 var emojiDictionary = {
-  "😂": "Face with Tears of Joy",
-  "😍": "Smiling Face with Heart-Eyes",
-  "😘": "Face Blowing a Kiss",
-  "😭": "Loudly Crying Face",
-  "😊": "Smiling Face with Smiling Eyes",
-  "😒": "Unamused Face",
-  "😏": "Smirking Face",
+  "💌": "Love Letter",
+  "💣": "Bomb",
+  "🔪": "Kitchen Knife",
+  "🧭": "Compass",
+  "🧱": "Brick",
+  "⌛": "Hourglass Done",
+  "⏳": "Hourglass Not Done",
   "🎶": "Musical Notes",
-  "😉": "Winking Face",
-  "☺️": "Smiling Face",
-  "🙈": "See-No-Evil Monkey",
-  "✌️": "Victory Hand",
-  "😌": "Relieved Face",
-  "😔": "Pensive Face",
-  "💖": "Sparkling Heart",
-  "👍": "Thumbs Up",
-  "😩": "Weary Face",
-  "🙏": "Folded Hands",
-  "😎": "Smiling Face with Sunglasses",
-  "😁": "Beaming Face with Smiling Eyes"
+  "🌡️": "Thermometer",
+  "🎈": "Balloon",
+  "🎉": "Party Popper",
+  "🧵": "Thread",
+  "💎": "Gem Stone",
+  "☎️": "Telephone",
+  "💻": "Laptop",
+  "🖨️": "Printer"
 };
 var emojiWeKnow = Object.keys(emojiDictionary);
 export default function App() {
-  var [userInput, setUserInput] = useState("");
+  var [userInput, setUserInput] = useState(
+    "Select Or Put An Emoji Know The meaning..."
+  );
   function OnChangeHandler(event) {
     var userValue = event.target.value;
     var meaning = emojiDictionary[userValue];
     //console.log(event.target.value);
+    if (meaning === undefined) {
+      meaning = "We Don't Have In Our Database.";
+    }
     setUserInput(meaning);
   }
   function emojiClickHandler(emoji) {
@@ -39,22 +40,26 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Find Emoji Meanings</h1>
-      <input onChange={OnChangeHandler} />
+      <input
+        className="inputField"
+        onChange={OnChangeHandler}
+        placeholder="Put an emoji here to know the meaning..."
+      />
       <h4>{userInput}</h4>
-      <h3>Emoji In Our Database</h3>
 
-      {emojiWeKnow.map((emoji) => {
-        return (
-          <span
-            key={emoji}
-            onClick={() => emojiClickHandler(emoji)}
-            style={{ cursor: "pointer", fontSize: "1.5rem", padding: "1rem" }}
-          >
-            {emoji}
-          </span>
-        );
-      })}
+      <div className="emojiContainer">
+        {emojiWeKnow.map((emoji) => {
+          return (
+            <span
+              key={emoji}
+              onClick={() => emojiClickHandler(emoji)}
+              style={{ cursor: "pointer", fontSize: "2rem" }}
+            >
+              {emoji}
+            </span>
+          );
+        })}
+      </div>
     </div>
   );
 }
